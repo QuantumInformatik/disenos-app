@@ -8,7 +8,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Material App',
+      title: 'diseños',
+      initialRoute: 'basico',
       routes: {
         'basico' : (BuildContext context)=> BasicoScreen()
       },
