@@ -8,8 +8,38 @@ class BotonesScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          _fondoApp()
+          _fondoApp(),
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                _titulos()
+              ],
+            ),
+          )
         ],
+      ),
+    );
+  }
+
+  Widget _titulos(){
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text('Classify transaction', style: TextStyle(
+                color: Colors.white,
+                fontSize: 30.0,
+                fontWeight: FontWeight.bold),
+            ),
+            Text('Classify this transaction into a particular category hello world',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 17.0,),
+            )
+          ],
+        ),
       ),
     );
   }
