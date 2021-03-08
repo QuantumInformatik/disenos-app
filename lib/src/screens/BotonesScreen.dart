@@ -18,6 +18,22 @@ class BotonesScreen extends StatelessWidget {
           )
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today),
+            title: Text('Hola')
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today),
+              title: Text('Hola')
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today),
+              title: Text('Hola')
+          )
+        ],
+      ),
     );
   }
 
