@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,24 +25,32 @@ class BotonesScreen extends StatelessWidget {
     );
   }
 
-  Widget _crearBotonRedondeado(){
-    return Container(
-      height: 180.0,
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(62, 66, 107, 0.7),
-        borderRadius: BorderRadius.circular(28.0)
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          CircleAvatar(
-            backgroundColor: Colors.pinkAccent,
-            radius: 35.0,
-            child: Icon(Icons.swap_calls, color: Colors.white, size: 30.0 ,),
+  Widget _crearBotonRedondeado(Color color, IconData icono, String texto){
+    return ClipRRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(
+            sigmaX: 2.5,
+            sigmaY: 2.5
+        ),
+        child: Container(
+          height: 180.0,
+          margin: EdgeInsets.all(15.0),
+          decoration: BoxDecoration(
+              color: Color.fromRGBO(62, 66, 107, 0.7),
+              borderRadius: BorderRadius.circular(20.0)
           ),
-          Text('Cosa', style: TextStyle(color: Colors.pinkAccent),)
-        ],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              CircleAvatar(
+                backgroundColor: Colors.pinkAccent,
+                radius: 35.0,
+                child: Icon(icono, color: Colors.white, size: 30.0 ,),
+              ),
+              Text(texto, style: TextStyle(color: color),)
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -54,24 +63,23 @@ class BotonesScreen extends StatelessWidget {
     return Table(
       children: [
         TableRow(
-          children: [
-           _crearBotonRedondeado(),
-            _crearBotonRedondeado()
-          ]
-        ),
-        TableRow(
             children: [
-              _crearBotonRedondeado(),
-              _crearBotonRedondeado()
+              _crearBotonRedondeado(Colors.blue, Icons.home, 'General'),
+              _crearBotonRedondeado(Colors.blue, Icons.bar_chart, 'Estado')
             ]
         ),
         TableRow(
             children: [
-              _crearBotonRedondeado(),
-              _crearBotonRedondeado()
+              _crearBotonRedondeado(Colors.blue, Icons.attach_money, 'Ingresos'),
+              _crearBotonRedondeado(Colors.blue, Icons.money_off, 'Egresos')
             ]
         ),
-
+        TableRow(
+            children: [
+              _crearBotonRedondeado(Colors.blue, Icons.stairs, 'Metas'),
+              _crearBotonRedondeado(Colors.blue, Icons.settings, 'Ajustes')
+            ]
+        ),
       ],
     );
   }
