@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BotonesScreen extends StatelessWidget {
@@ -12,13 +13,66 @@ class BotonesScreen extends StatelessWidget {
           SingleChildScrollView(
             child: Column(
               children: [
-                _titulos()
+                _titulos(),
+                _botonesRedondeados()
               ],
             ),
           )
         ],
       ),
       bottomNavigationBar: _bottonNavigationBar(context)
+    );
+  }
+
+  Widget _crearBotonRedondeado(){
+    return Container(
+      height: 180.0,
+      margin: EdgeInsets.all(15.0),
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(62, 66, 107, 0.7),
+        borderRadius: BorderRadius.circular(28.0)
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          CircleAvatar(
+            backgroundColor: Colors.pinkAccent,
+            radius: 35.0,
+            child: Icon(Icons.swap_calls, color: Colors.white, size: 30.0 ,),
+          ),
+          Text('Cosa', style: TextStyle(color: Colors.pinkAccent),)
+        ],
+      ),
+    );
+  }
+
+
+  Widget _botonesRedondeados(){
+    /*
+    Los table row debe tener todos la misma cantidad de hijos
+     */
+    return Table(
+      children: [
+        TableRow(
+          children: [
+           _crearBotonRedondeado(),
+            _crearBotonRedondeado()
+          ]
+        ),
+        TableRow(
+            children: [
+              _crearBotonRedondeado(),
+              _crearBotonRedondeado()
+            ]
+        ),
+        TableRow(
+            children: [
+              _crearBotonRedondeado(),
+              _crearBotonRedondeado()
+            ]
+        ),
+
+      ],
     );
   }
 
